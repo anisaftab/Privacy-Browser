@@ -19,3 +19,7 @@ git clone https://github.com/Anisaftab/Privacy-Browser.git
 
 Happy Searching!!
 Thank you for checking out my project.
+
+## Screenshots
+![Home Page](img/home.png)
+![Other Websites](img/flights.png)

@@ -3,7 +3,8 @@ from turtle import forward
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtWebEngineWidgets import *
-from PyQt5.QtGui import QIcon,QFont
+from PyQt5.QtGui import *
+from PyQt5 import QtPrintSupport, QtWidgets
 
 class TabBar(QTabBar):
         def tabSizeHint(self, index):
@@ -145,7 +146,9 @@ class MainWindow( QMainWindow ):
         self.tabs.currentWidget().load(QUrl('https://google.com'))
 
     def exportToPDF(self):
-        self.webEngineView.page().printToPdf('webpage.pdf')
+        dialog = QtPrintSupport.QPrintDialog()
+        if dialog.exec_() == QtWidgets.QDialog.Accepted:
+            self.editor.document().print_(dialog.printer())
         QMessageBox.information(self,'info','page exported')
 
     def closeBrowser(self):
